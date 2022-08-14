@@ -59,3 +59,30 @@ find / -cmin -60: find files changed within the last hour (60 minutes)
 find / -amin -60: find files accesses within the last hour (60 minutes)
 find / -size 50M: find files with a 50 MB size
 This command can also be used with (+) and (-) signs to specify a file that is larger or smaller than the given size.
+
+
+Enumeration Tools
+
+LinPeas: https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
+LinEnum: https://github.com/rebootuser/LinEnum
+LES (Linux Exploit Suggester): https://github.com/mzet-/linux-exploit-suggester
+Linux Smart Enumeration: https://github.com/diego-treitos/linux-smart-enumeration
+Linux Priv Checker: https://github.com/linted/linuxprivchecker
+
+
+$find / -type f -perm -04000 -ls 2>/dev/null <-- will list files that have SUID or SGID bits set.
+
+
+$getcap -r / 2>/dev/null   <--- Capatabilities
+
+PATH:
+
+find / -writable 2>/dev/null | cut -d "/" -f 2,3 | grep -v proc | sort -u
+
+CRON:
+
+$cat /etc/crontab
+
+NFS
+
+NFS (Network File Sharing) configuration is kept in the /etc/exports file. This file is created during the NFS server installation and can usually be read by users.
